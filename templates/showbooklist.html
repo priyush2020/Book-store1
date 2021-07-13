@@ -1,0 +1,80 @@
+{% extends 'common.html' %}
+{% load static %}
+
+
+{% block bs %}
+
+ <style>
+
+.book_sec_main_new {
+background: border-box;
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #e0dddd;
+    border-left: 1px solid #e0dddd;
+    border-right: 1px solid #e0dddd;
+    padding: 10px;
+}
+.main_sec_new {
+ width: 100%;
+    float: left;
+    margin: 0;
+    background: #f9f8f8;
+    color: #1b1b1b;
+    padding: 10px;
+    border-top: 1px solid #e0dddd;
+    border-left: 1px solid #e0dddd;
+    border-right: 1px solid #e0dddd;
+}
+
+.book_head_new {
+    width: 20%;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+.book_details_new {
+width: 20%;
+    float: left;
+    padding: 5px 0px;
+    font-weight: 400;
+    text-align: left;
+    font-size: 13px;
+}
+
+</style>
+          <div class="nav">
+              <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'main' %}"> <img src="{% static 'image/back_arrow.png' %}"> Back <span class="sr-only"></span></a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+          </div>
+
+        <div class="main_sec_new">
+            <div class="fw-bold book_head_new"> No. </div>
+            <div class="fw-bold book_head_new"> Book Name </div>
+            <div class="fw-bold book_head_new">  Author </div>
+            <div class="fw-bold book_head_new"> Genre </div>
+            <div class="fw-bold book_head_new"> Language </div>
+        </div>
+
+{% for x in book %}
+    <div class="book_sec_main_new text-center">
+
+    <div class="book_details_new">{{ x.idno }}</div>
+    <div class="book_details_new">{{ x.book_name }}</div>
+    <div class="book_details_new">{{ x.author }}</div>
+    <div class="book_details_new">{{ x.genre }}</div>
+        <div class="book_details_new">{{ x.language }}</div>
+
+    </div>
+      {% endfor %}
+
+{% endblock %}
